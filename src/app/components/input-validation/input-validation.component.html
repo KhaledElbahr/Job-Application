@@ -1,0 +1,7 @@
+@if (errorMessages && control.touched && control.invalid) {
+<div class="error-list">
+  @for (errorMessage of errorMessages; track $index) {
+  <mat-error class="error-message">{{ errorMessage }}</mat-error>
+  }
+</div>
+}

@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  padding-top: 0.3rem;
+  margin: 1rem 0.5rem;
+  border-radius: 0.7rem;
+  border: 1px solid #e0e0e0;
+  display: inline-block;
+  width: 47%;
+}
+
+.input-file {
+  border: none;
+  cursor: pointer;
+  &:focus-visible {
+    border: none;
+    outline: none;
+  }
+}
+
+input::placeholder {
+  color: #dfdfdf;
+  font-size: 0.95rem;
+}
+
+.content {
+  height: 1.7rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.error-message {
+  display: block;
+  color: red;
+  font-size: 0.95rem;
+}
+
+.btn-apply {
+  background-color: transparent;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+  &:hover {
+    background-color: #4caf50;
+    color: #fff;
+  }
+}
+
+.btn-warning {
+  border: 1px solid #ffc107;
+  &:hover {
+    background-color: #daa506;
+    color: #fff;
+  }
+}
+
+button {
+  outline: none;
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}

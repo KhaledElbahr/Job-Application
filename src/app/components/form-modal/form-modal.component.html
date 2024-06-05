@@ -1,0 +1,104 @@
+<h2 mat-dialog-title>Apply for {{ job.title }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="applicationForm">
+    <text-input [control]="fc['name']" type="text" label="Name" />
+    <text-input [control]="fc['email']" type="email" label="Email" />
+    <text-input
+      [control]="fc['phoneNumber']"
+      type="text"
+      label="Phone Number"
+    />
+    <text-input [control]="fc['country']" type="text" label="Country" />
+    <text-input
+      [control]="fc['education']"
+      type="text"
+      label="Education/Degree"
+    />
+    <text-input
+      [control]="fc['currentPosition']"
+      type="text"
+      label="Current Position"
+    />
+    <text-input
+      [control]="fc['currentCompany']"
+      type="text"
+      label="Current Company"
+    />
+    <div class="container">
+      <label for="cvFile">Upload Your CV</label>
+      <div class="content">
+        <input
+          class="input-file"
+          type="text"
+          placeholder="CV File"
+          [value]="fileName"
+          (click)="fileInput.click()"
+          readonly
+        />
+        <input
+          type="file"
+          #fileInput
+          (change)="onFileChange($event)"
+          accept=".pdf,.doc,.docx"
+          hidden
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="fileInput.click()"
+        >
+          <mat-icon>attach_file</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <label for="cvFile">Upload Cover Letter</label>
+      <div class="content">
+        <input
+          class="input-file"
+          type="text"
+          placeholder="(Max size 3MB)"
+          [value]="coverLetterFileName"
+          (click)="coverLetterInput.click()"
+          readonly
+        />
+        <input
+          type="file"
+          #coverLetterInput
+          (change)="onCoverLetterChange($event)"
+          accept=".pdf,.doc,.docx"
+          hidden
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="coverLetterInput.click()"
+        >
+          <mat-icon>attach_file</mat-icon>
+        </button>
+      </div>
+    </div>
+    @if (isCoverLetterFileTooLarge) {
+    <span class="error-message">
+      Cover letter file size must be less than 3MB</span
+    >
+    }
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="m-3" align="end">
+  <button
+    class="btn btn-warning btn-block btn-outline btn-sm me-2"
+    (click)="onClose()"
+  >
+    Cancel
+  </button>
+  <button
+    class="btn btn-primary btn-block btn-outline btn-apply btn-sm"
+    (click)="onSubmit()"
+    [disabled]="applicationForm.invalid"
+  >
+    Submit
+  </button>
+</mat-dialog-actions>

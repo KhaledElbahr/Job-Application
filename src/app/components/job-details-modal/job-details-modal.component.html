@@ -1,0 +1,37 @@
+@if (!showApplicationForm) {
+<h2 mat-dialog-title>{{ job.title }}</h2>
+<mat-dialog-content>
+  <p><strong>Company:</strong> {{ job.page.work_space_meta_data.page_name }}</p>
+  <p><strong>Type:</strong> {{ job.type }}</p>
+  @if (job.description) {
+  <p><strong>Description:</strong> {{ job.description }}</p>
+  }
+  <p><strong>Location:</strong> {{ job.page.location.country.name }}</p>
+  <p>
+    <strong>Salary:</strong>
+    {{ job.salary_from | currency : "$" }} -
+    {{ job.salary_to | currency : "$" }}
+  </p>
+  <p><strong>Industry:</strong> {{ job.page.location.industry.name }}</p>
+  <p>
+    <strong>Experience:</strong> {{ job.minimum_years_of_experience }} years
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions class="m-3" align="end">
+  <button
+    class="btn btn-primary btn-block btn-outline btn-apply btn-sm me-2"
+    (click)="onApply()"
+    [disabled]="isApplied"
+  >
+    {{ isApplied ? "Applied" : "Apply" }}
+  </button>
+  <button
+    class="btn btn-warning btn-block btn-outline btn-sm"
+    (click)="onClose()"
+  >
+    Save Job
+  </button>
+</mat-dialog-actions>
+} @else {
+<jg-form-modal />
+}

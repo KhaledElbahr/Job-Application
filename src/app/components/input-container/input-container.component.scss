@@ -1,0 +1,23 @@
+.container {
+    position: relative;
+    padding-top: 0.3rem;
+    margin: 1rem 0.5rem;
+    border-radius: 0.7rem;
+    border: 1px solid #e0e0e0;
+    display: inline-block;
+    width: 47%;
+}
+
+label {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: #5f5f5f;
+}
+
+.content {
+    padding: 0 0.5rem;
+    height: 1.7rem;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,27 +1,46 @@
-# JobsGlobal
+# Job Application Portal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This project is a job application portal that allows users to apply for job positions and tracks their application status.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- User-friendly interface to view available job listings.
+- Apply for jobs by uploading CV files.
+- Track application status.
+- Display confirmation message upon successful submission.
+- Prevent multiple applications for the same job.
 
-## Code scaffolding
+## Installation
+- To run this application locally, follow these steps:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
+`git clone https://github.com/your-username/job-application-portal.git`
 
-## Build
+2. Navigate to the project directory:
+cd job-application-portal
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Install dependencies:
+`npm install`
 
-## Running unit tests
+4. Start the development server:
+`ng serve`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. Open your browser and navigate to http://localhost:4200/ to view the application.
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> Upon opening the application, you'll see a list of available job listings.
+> Click on a job to view its details.
+> To apply for a job, click on the "Apply" button and upload your CV file.
+> After successful submission, you'll see a confirmation message.
+> If you try to apply for the same job again, the "Apply" button will be disabled as you've already applied.
 
-## Further help
+## Technologies Used
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> Angular
+> Angular Material
+> Bootstrap
+> ngx-toastr
+> HTML
+> Scss
+> TypeScript

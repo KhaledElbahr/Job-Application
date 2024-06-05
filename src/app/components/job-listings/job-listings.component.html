@@ -1,0 +1,65 @@
+<mat-toolbar>
+  <span>Job Listings</span>
+  <span class="spacer"></span>
+  <mat-form-field>
+    <input
+      matInput
+      #jobTitleInput
+      (input)="filterJobs(jobTitleInput.value)"
+      placeholder="Filter by job title"
+    />
+  </mat-form-field>
+</mat-toolbar>
+<div class="job-listings container mt-4">
+  @for (job of filteredJobs; track $index) {
+  <mat-card
+    class="col-xl-3 col-md-4 col-sm-6 m-2"
+    (click)="openJobDetails(job)"
+  >
+    <mat-card-content>
+      <div class="job-post">
+        <div class="job-header">
+          <h5 class="job-title mt-0 mb-2">{{ job.title }}</h5>
+          <span class="job-type">{{ job.type }}</span>
+        </div>
+        <ul class="list-inline">
+          <li>
+            <p class="company-name">
+              {{ job.page.work_space_meta_data.page_name }}
+            </p>
+          </li>
+          @if (job.description) {
+          <li>
+            <p>
+              Job Description :
+              <span class="job-type">{{
+                job.description | slice : 0 : 100
+              }}</span>
+            </p>
+          </li>
+          }
+        </ul>
+        <div class="jobpost-location">
+          <p>
+            <i class="fa-solid fa-location-pin me-2"></i>
+            {{ job.page.location.country.name }}
+          </p>
+          <p>
+            <i class="fa-solid fa-wallet me-2"></i>
+            <span>{{ job.salary_from | currency : "$" }}</span> -
+            <span>{{ job.salary_to | currency : "$" }}</span>
+          </p>
+          <p>
+            <strong>Industry: {{ job.page.location.industry.name }}</strong>
+          </p>
+          <p>
+            <strong
+              >Experience: {{ job.minimum_years_of_experience }} years</strong
+            >
+          </p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>
